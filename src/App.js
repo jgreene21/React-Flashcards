@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import {Container, Header, Grid, } from 'semantic-ui-react';
 import Flashcards from './Flashcards';
+import FlashcardForm from './FlashcardForm'
 
 
 
@@ -49,7 +50,7 @@ getId = () => {
 
   render(){ 
   return (
-    <Container textAlign='center'>
+    <Container style={{ paddingTop: "25px", textAlign: 'center' }}>
       <Header textAlign= "center" as='h1'>Math Flashcards</Header>
       <hr />
       <br />
@@ -57,6 +58,8 @@ getId = () => {
               {this.mapFlashcards()} 
             </Grid.Column>
         <br />
+        <p >Create your own flashcard:</p>
+        <FlashcardForm align= "center" />
     </Container>
   );
  };
