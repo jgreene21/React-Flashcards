@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {Container, Header, Grid, } from 'semantic-ui-react';
 import Flashcards from './Flashcards';
+
 
 
 class App extends React.Component {
@@ -17,43 +18,49 @@ class App extends React.Component {
     ]
   };
 
+
 mapFlashcards = () => {
   return(
     this.state.flashcards.map(flashcard => (
       <Flashcards key={flashcard.id} flashcard={{...flashcard}} />
     ))
   )
-}
-
-removeFlashcard = (id) => {
-  const flashcards = this.state.flashcards.filter( flashcard => {
-    if (flashcard.id !== id)
-      return flashcard 
-  });
-  this.setState({ flashcards: [...flashcards], })
 };
 
+getId = () => {
+  return Math.floor((1+ Math.random()) * 10000);
+};
 
+// addFlashcard =(flashcard) => {
+//   var newFlashcard= {...flashcard, id:this.getId}
+//   var newFlashcards = [ newFlashcard, ...this.state.flashcards]
+//   this.setState({
+//     flashcards:newFlashcards
+//   })
+// }
 
+// removeFlashcard = (id) => {
+//   const flashcards = this.state.flashcards.filter( flashcard => {
+//     if (flashcard.id !== id)
+//       return flashcard 
+//   });
+//   this.setState({ flashcards: newFlashcards})
+// };
 
-  render() {
+  render(){ 
   return (
-    <Container>
-      <div>
+    <Container textAlign='center'>
       <Header textAlign= "center" as='h1'>Math Flashcards</Header>
       <hr />
-      </div>
-        <Grid columns={3}>
-          <Grid.Row>
-            <Grid.Column>
+      <br />
+            <Grid.Column align='center'>
               {this.mapFlashcards()} 
             </Grid.Column>
-          </Grid.Row>
-        </Grid>
+        <br />
     </Container>
-   
   );
- }
+ };
 }
+
 
 export default App;
