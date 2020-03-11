@@ -32,13 +32,13 @@ getId = () => {
   return Math.floor((1+ Math.random()) * 10000);
 };
 
-// addFlashcard =(flashcard) => {
-//   var newFlashcard= {...flashcard, id:this.getId}
-//   var newFlashcards = [ newFlashcard, ...this.state.flashcards]
-//   this.setState({
-//     flashcards:newFlashcards
-//   })
-// }
+addFlashcard =(flashcard) => {
+  var newFlashcard= {...flashcard, id:this.getId}
+  var newFlashcards = [ newFlashcard, ...this.state.flashcards]
+  this.setState({
+    flashcards:newFlashcards
+  })
+}
 
 // removeFlashcard = (id) => {
 //   const flashcards = this.state.flashcards.filter( flashcard => {
@@ -59,7 +59,7 @@ getId = () => {
             </Grid.Column>
         <br />
         <p >Create your own flashcard:</p>
-        <FlashcardForm align= "center" />
+        <FlashcardForm add={this.addFlashcard} />
     </Container>
   );
  };

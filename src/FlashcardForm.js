@@ -6,6 +6,8 @@ class FlashcardForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    this.props.add(this.state);
+    this.setState({ front: "", back: "", })
     // Call a function to add a contact to state
     // Where should this function be defined???
   }
